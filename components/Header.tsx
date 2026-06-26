@@ -142,13 +142,13 @@ export default function Header() {
             <div className="menu menu-wide" role="menu">
               <div className="menu-label">Performance Marketing</div>
               <div className="feat-row one">
-                <a className="feat" href="#performance">
+                <Link className="feat" href="/services/performance-marketing/">
                   <div>
                     <div className="t">Performance Marketing</div>
                     <div className="d">Full-funnel toolkit — demand gen, lead gen &amp; CRO built in</div>
                   </div>
                   <span className="ar">→</span>
-                </a>
+                </Link>
               </div>
               <div className="menu-grid">
                 <a className="menu-item" href="#">
@@ -217,7 +217,7 @@ export default function Header() {
         <details className="m-group">
           <summary>Performance Marketing</summary>
           <div className="m-sub">
-            <a href="#performance">Performance Marketing</a>
+            <Link href="/services/performance-marketing/">Performance Marketing</Link>
             <a href="#">SEM</a>
             <a href="#">Video Performance</a>
             <a href="#">Paid Social</a>
