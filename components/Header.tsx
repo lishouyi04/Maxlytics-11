@@ -97,7 +97,7 @@ export default function Header() {
                   </div>
                   <span className="ar">→</span>
                 </Link>
-                <a className="feat" href="#">
+                <Link className="feat" href="/services/ai-seo/">
                   <div>
                     <div className="t">
                       AI SEO <span className="badge">2026</span>
@@ -105,33 +105,33 @@ export default function Header() {
                     <div className="d">ChatGPT · Gemini · Perplexity · AI Mode</div>
                   </div>
                   <span className="ar">→</span>
-                </a>
+                </Link>
               </div>
               <div className="menu-grid">
                 <Link className="menu-item" href="/services/seo/local-seo/">
                   <div className="t">Local SEO</div>
-                  <div className="d">Google Business · Maps · 18 districts</div>
+                  <div className="d">Google Business · Maps · HK local intent</div>
                 </Link>
-                <a className="menu-item" href="#">
+                <Link className="menu-item" href="/services/ai-seo/geo/">
                   <div className="t">Generative Engine Optimisation</div>
                   <div className="d">Citation measurement · AI visibility audit</div>
-                </a>
-                <a className="menu-item" href="#">
+                </Link>
+                <Link className="menu-item" href="/services/seo/ecommerce-seo/">
                   <div className="t">Ecommerce SEO</div>
                   <div className="d">Shopify · SHOPLINE · Baidu · XHS</div>
-                </a>
-                <a className="menu-item" href="#">
+                </Link>
+                <Link className="menu-item" href="/services/ai-seo/ai-overview/">
                   <div className="t">AI Overview Optimisation</div>
                   <div className="d">Google AI Overview · schema · snippets</div>
-                </a>
-                <a className="menu-item" href="#">
+                </Link>
+                <Link className="menu-item" href="/services/seo/technical-seo/">
                   <div className="t">Technical SEO</div>
                   <div className="d">Audits · schema · Core Web Vitals · hreflang</div>
-                </a>
-                <a className="menu-item" href="#">
+                </Link>
+                <Link className="menu-item" href="/services/content-marketing/">
                   <div className="t">Content Marketing</div>
                   <div className="d">AI content ops · bilingual production</div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -151,22 +151,22 @@ export default function Header() {
                 </Link>
               </div>
               <div className="menu-grid">
-                <a className="menu-item" href="#">
+                <Link className="menu-item" href="/services/sem/">
                   <div className="t">SEM</div>
                   <div className="d">Google · Bing · Baidu · PMax · Shopping · Conquesting</div>
-                </a>
-                <a className="menu-item" href="#">
+                </Link>
+                <Link className="menu-item" href="/services/video-performance/">
                   <div className="t">Video Performance</div>
                   <div className="d">YouTube · Reels · Shorts · TikTok</div>
-                </a>
-                <a className="menu-item" href="#">
+                </Link>
+                <Link className="menu-item" href="/services/paid-social/">
                   <div className="t">Paid Social</div>
                   <div className="d">Meta · LinkedIn · TikTok · X · XHS · LINE</div>
-                </a>
-                <a className="menu-item" href="#">
+                </Link>
+                <Link className="menu-item" href="/services/analytics-attribution/">
                   <div className="t">Analytics &amp; Attribution</div>
                   <div className="d">GA4 · CAPI · Server-side GTM · MMM · ROAS</div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -178,10 +178,10 @@ export default function Header() {
               Resources <span className="caret"></span>
             </button>
             <div className="menu menu-narrow" role="menu">
-              <a href="#">All Articles</a>
-              <a href="#">Performance Marketing</a>
-              <a href="#">AI Marketing</a>
-              <a href="#">SEO</a>
+              <Link href="/blog/">All Articles</Link>
+              <Link href="/blog/category/performance-marketing/">Performance Marketing</Link>
+              <Link href="/blog/category/ai-marketing/">AI Marketing</Link>
+              <Link href="/blog/category/seo/">SEO</Link>
             </div>
           </div>
           <div className="navitem">
@@ -205,23 +205,23 @@ export default function Header() {
           <summary>SEO</summary>
           <div className="m-sub">
             <Link href="/services/seo" data-view="seo">SEO</Link>
-            <a href="#">AI SEO</a>
+            <Link href="/services/ai-seo/">AI SEO</Link>
             <Link href="/services/seo/local-seo/">Local SEO</Link>
-            <a href="#">Generative Engine Optimisation</a>
-            <a href="#">Ecommerce SEO</a>
-            <a href="#">AI Overview Optimisation</a>
-            <a href="#">Technical SEO</a>
-            <a href="#">Content Marketing</a>
+            <Link href="/services/ai-seo/geo/">Generative Engine Optimisation</Link>
+            <Link href="/services/seo/ecommerce-seo/">Ecommerce SEO</Link>
+            <Link href="/services/ai-seo/ai-overview/">AI Overview Optimisation</Link>
+            <Link href="/services/seo/technical-seo/">Technical SEO</Link>
+            <Link href="/services/content-marketing/">Content Marketing</Link>
           </div>
         </details>
         <details className="m-group">
           <summary>Performance Marketing</summary>
           <div className="m-sub">
             <Link href="/services/performance-marketing/">Performance Marketing</Link>
-            <a href="#">SEM</a>
-            <a href="#">Video Performance</a>
-            <a href="#">Paid Social</a>
-            <a href="#">Analytics &amp; Attribution</a>
+            <Link href="/services/sem/">SEM</Link>
+            <Link href="/services/video-performance/">Video Performance</Link>
+            <Link href="/services/paid-social/">Paid Social</Link>
+            <Link href="/services/analytics-attribution/">Analytics &amp; Attribution</Link>
           </div>
         </details>
         <a className="m-link" href="#cases">
@@ -230,10 +230,10 @@ export default function Header() {
         <details className="m-group">
           <summary>Resources</summary>
           <div className="m-sub">
-            <a href="#">All Articles</a>
-            <a href="#">Performance Marketing</a>
-            <a href="#">AI Marketing</a>
-            <a href="#">SEO</a>
+            <Link href="/blog/">All Articles</Link>
+            <Link href="/blog/category/performance-marketing/">Performance Marketing</Link>
+            <Link href="/blog/category/ai-marketing/">AI Marketing</Link>
+            <Link href="/blog/category/seo/">SEO</Link>
           </div>
         </details>
         <a className="m-link" href="#">

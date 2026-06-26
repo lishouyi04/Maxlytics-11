@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import SeoHeroShell from "@/components/sections/seo/SeoHeroShell";
 import Faq, { type FaqItem } from "@/components/sections/Faq";
-import ViewMoreFeatures from "@/components/sections/seo/ViewMoreFeatures";
 import SiteEffects from "@/components/SiteEffects";
+import Radar from "@/components/shaders/Radar";
 
 export const metadata: Metadata = {
   title: "Free SEO Audit Hong Kong",
@@ -49,24 +49,24 @@ const jsonLd = {
 };
 
 const pillars = [
-  ["Technical SEO Audit", "Crawlability, broken redirects, mobile performance and loading dead-zone checks."],
-  ["Content Intent Audit", "Semantic gaps, keyword cannibalisation and bilingual HK intent alignment."],
-  ["Backlink Authority Audit", "Domain trust velocity, toxic link screening and local directory coverage."],
-  ["AI Visibility Audit", "Recommendation-rank checks across ChatGPT, Perplexity, Gemini and Google AI Overviews."],
+  ["Technical SEO Audit", "Crawlability, broken redirects, mobile performance and loading dead-zone checks.", "/icons/audit/technical-audit-fix.svg"],
+  ["Content Intent Audit", "Semantic gaps, keyword cannibalisation and bilingual HK intent alignment.", "/icons/audit/intent-recognition.svg"],
+  ["Backlink Authority Audit", "Domain trust velocity, toxic link screening and local directory coverage.", "/icons/audit/link-authority.svg"],
+  ["AI Visibility Audit", "Recommendation-rank checks across ChatGPT, Perplexity, Gemini and Google AI Overviews.", "/icons/audit/ai-visibility.svg"],
 ];
 
 const metrics = [
-  ["Core Web Vitals Status", "Rendering speed and interaction responsiveness signals."],
-  ["SSL & Encryption Integrity", "Security certificate validation and trust readiness."],
-  ["XML Sitemap Readiness", "Crawl path structure for search discovery."],
-  ["Structured Data Coverage", "Rich-result and schema nesting eligibility."],
-  ["Mobile Response Configuration", "Viewport and device rendering parity."],
+  ["Core Web Vitals", "Rendering speed and interaction responsiveness signals.", "/img/img-3fc2d1ec65.svg"],
+  ["SSL Integrity", "Security certificate validation and trust readiness.", "/img/img-407b39ac68.svg"],
+  ["XML Sitemap", "Crawl path structure for search discovery.", "/img/img-770343fefa.svg"],
+  ["Schema Coverage", "Rich-result and schema nesting eligibility.", "/img/img-501176ce6c.svg"],
+  ["Mobile Response", "Viewport and device rendering parity.", "/img/img-39cf66c0da.svg"],
 ];
 
 const reportItems = [
-  ["Technical Health Score Board", "Crawl maps that show link breakages and rendering issues."],
-  ["AI Overviews Coverage Heatmap", "Where your brand is cited, ignored or displaced in AI search answers."],
-  ["Bilingual Content Gap Framework", "English and Traditional Chinese keyword gaps mapped against competitors."],
+  ["Technical Health Score Board", "Crawl maps that show link breakages and rendering issues.", "/icons/audit/technical-audit-fix.svg"],
+  ["AI Overviews Coverage Heatmap", "Where your brand is cited, ignored or displaced in AI search answers.", "/icons/audit/ai-visibility.svg"],
+  ["Bilingual Content Gap Framework", "English and Traditional Chinese keyword gaps mapped against competitors.", "/icons/audit/intent-recognition.svg"],
 ];
 
 export default function FreeSeoAuditPage() {
@@ -89,14 +89,20 @@ export default function FreeSeoAuditPage() {
           <div className="section-head" data-reveal>
             <h2>4 Core Dimensions of Our Deep-Dive Audit</h2>
           </div>
-          <div className="feature-grid four" data-reveal>
-            {pillars.map(([title, desc], index) => (
-              <div className={"feature-card" + (index === 3 ? " featured-card" : "")} key={title}>
-                <span className="card-kicker">0{index + 1}</span>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-              </div>
-            ))}
+          <div className="radar-block" data-reveal>
+            <Radar />
+            <div className="radar-grid">
+              {pillars.map(([title, desc, icon], index) => (
+                <div className={`quad ${["tl", "tr", "bl", "br"][index]}`} key={title}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img className="q-ic" src={icon} alt="" />
+                  <h3>{title}</h3>
+                  <p>{desc}</p>
+                </div>
+              ))}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="radar-center" src="/img/img-19094d41ed.png" alt="Maxlytics" />
+            </div>
           </div>
         </div>
       </section>
@@ -107,10 +113,14 @@ export default function FreeSeoAuditPage() {
             <h2>Instant Core Analytics</h2>
             <p>See how search crawlers interpret your basic digital infrastructure before the full report is prepared.</p>
           </div>
-          <div className="terminal-grid" data-reveal>
-            {metrics.map(([title, desc], index) => (
-              <div className="terminal-metric" key={title}>
-                <span>Metric 0{index + 1}</span>
+          <div className="steps">
+            {metrics.map(([title, desc, icon], index) => (
+              <div className="step" data-reveal key={title}>
+                {index < metrics.length - 1 && <span className="line"></span>}
+                <div className="n">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img className="step-ic" src={icon} alt="" />
+                </div>
                 <h3>{title}</h3>
                 <p>{desc}</p>
               </div>
@@ -125,8 +135,12 @@ export default function FreeSeoAuditPage() {
             <h2>Inside Your Final Audit Deliverable</h2>
           </div>
           <div className="report-strip" data-reveal>
-            {reportItems.map(([title, desc]) => (
+            {reportItems.map(([title, desc, icon]) => (
               <div className="report-card" key={title}>
+                <span className="feature-icon report-icon" aria-hidden="true">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={icon} alt="" />
+                </span>
                 <div className="report-window" aria-hidden="true">
                   <span></span><span></span><span></span>
                 </div>
@@ -140,7 +154,6 @@ export default function FreeSeoAuditPage() {
 
       <Faq items={faqItems} title="Frequently Asked Questions" subtitle="" id="free-audit-faq" />
 
-      <ViewMoreFeatures />
       <SiteEffects />
     </main>
   );

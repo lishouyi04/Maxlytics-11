@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 
 type SeoHeroShellProps = {
   eyebrow?: string;
+  breadcrumb?: string;
   title: ReactNode;
   description: string;
   primaryCta: string;
@@ -14,6 +15,7 @@ type SeoHeroShellProps = {
 
 export default function SeoHeroShell({
   eyebrow,
+  breadcrumb,
   title,
   description,
   primaryCta,
@@ -29,6 +31,7 @@ export default function SeoHeroShell({
       </div>
       <div className="container">
         <div className="seo-hero-copy" data-reveal>
+          {breadcrumb && <div className="hero-breadcrumb">{breadcrumb}</div>}
           {eyebrow && <span className="eyebrow">{eyebrow}</span>}
           <h1>{title}</h1>
           <p className="lead">{description}</p>
