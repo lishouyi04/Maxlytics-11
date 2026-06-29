@@ -202,46 +202,66 @@ export default function Header() {
 
       <div className="mobile-nav" id="mobileNav">
         <details className="m-group">
-          <summary>SEO</summary>
+          <summary>Services</summary>
           <div className="m-sub">
-            <Link href="/services/seo" data-view="seo">SEO</Link>
-            <Link href="/services/ai-seo/">AI SEO</Link>
-            <Link href="/services/seo/local-seo/">Local SEO</Link>
-            <Link href="/services/ai-seo/geo/">Generative Engine Optimisation</Link>
-            <Link href="/services/seo/ecommerce-seo/">Ecommerce SEO</Link>
-            <Link href="/services/ai-seo/ai-overview/">AI Overview Optimisation</Link>
-            <Link href="/services/seo/technical-seo/">Technical SEO</Link>
+            <details className="m-nested">
+              <summary>AI SEO</summary>
+              <div className="m-sub">
+                <Link href="/services/ai-seo/">AI SEO</Link>
+                <Link href="/services/ai-seo/geo/">GEO</Link>
+                <Link href="/services/ai-seo/ai-overview/">AI Overview</Link>
+              </div>
+            </details>
+            <Link href="/services/cro/">CRO</Link>
+            <details className="m-nested">
+              <summary>Performance Marketing</summary>
+              <div className="m-sub">
+                <Link href="/services/performance-marketing/">Performance Marketing</Link>
+              </div>
+            </details>
+            <Link href="/services/sem/">SEM</Link>
+            <Link href="/services/google-ads/">Google Ads</Link>
+            <Link href="/services/google-search-ads/">Google Search Ads</Link>
+            <Link href="/services/google-display-ads/">Google Display Ads</Link>
+            <Link href="/services/google-performance-max/">Google Performance Max</Link>
+            <details className="m-nested">
+              <summary>Paid Social</summary>
+              <div className="m-sub">
+                <Link href="/services/paid-social/">Paid Social</Link>
+                <Link href="/services/linkedin-ads/">LinkedIn Ads</Link>
+              </div>
+            </details>
+            <Link href="/services/video-performance/">Video Performance</Link>
+            <Link href="/services/analytics-attribution/">Analytics &amp; Attribution</Link>
+            <Link href="/services/demand-gen/">Demand Gen</Link>
+            <Link href="/services/lead-generation/">Lead Generation</Link>
+            <details className="m-nested">
+              <summary>SEO</summary>
+              <div className="m-sub">
+                <Link href="/services/seo/" data-view="seo">SEO</Link>
+                <Link href="/services/seo/local-seo/">Local SEO</Link>
+                <Link href="/services/seo/ecommerce-seo/">Ecommerce SEO</Link>
+                <Link href="/services/seo/technical-seo/">Technical SEO</Link>
+              </div>
+            </details>
             <Link href="/services/content-marketing/">Content Marketing</Link>
           </div>
         </details>
-        <details className="m-group">
-          <summary>Performance Marketing</summary>
-          <div className="m-sub">
-            <Link href="/services/performance-marketing/">Performance Marketing</Link>
-            <Link href="/services/sem/">SEM</Link>
-            <Link href="/services/video-performance/">Video Performance</Link>
-            <Link href="/services/paid-social/">Paid Social</Link>
-            <Link href="/services/analytics-attribution/">Analytics &amp; Attribution</Link>
-          </div>
-        </details>
-        <a className="m-link" href="#cases">
+        <Link className="m-link" href="/free-seo-audit/">
+          Free SEO Audit
+        </Link>
+        <Link className="m-link" href="/case-studies/">
           Case Studies
-        </a>
+        </Link>
         <details className="m-group">
-          <summary>Resources</summary>
+          <summary>Blog</summary>
           <div className="m-sub">
-            <Link href="/blog/">All Articles</Link>
+            <Link href="/blog/">Blog</Link>
             <Link href="/blog/category/performance-marketing/">Performance Marketing</Link>
             <Link href="/blog/category/ai-marketing/">AI Marketing</Link>
             <Link href="/blog/category/seo/">SEO</Link>
           </div>
         </details>
-        <a className="m-link" href="#">
-          About
-        </a>
-        <a className="m-link muted" href="#">
-          Contact
-        </a>
         <Link href="/free-seo-audit/" className="shiny-cta m-cta">
           <span>Free Audit</span>
         </Link>

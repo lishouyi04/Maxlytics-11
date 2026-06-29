@@ -148,6 +148,13 @@ header.stuck{background:rgba(8,6,15,.72);backdrop-filter:blur(16px);border-botto
 .m-sub{display:flex;flex-direction:column;padding:2px 0 12px 12px}
 .m-sub a{padding:9px 6px;font-size:.92rem;color:var(--muted);font-weight:500}
 .m-sub a:hover,.m-sub a:focus-visible{color:var(--cyan)}
+.m-nested{border-left:1px solid rgba(255,255,255,.08);margin-left:4px;padding-left:10px}
+.m-nested>summary{display:flex;align-items:center;justify-content:space-between;padding:10px 6px;font-family:"Inter",sans-serif;font-weight:600;font-size:.94rem;color:var(--text);cursor:pointer;list-style:none}
+.m-nested>summary::-webkit-details-marker{display:none}
+.m-nested>summary::after{content:"";width:8px;height:8px;border-right:1.4px solid var(--muted);border-bottom:1.4px solid var(--muted);transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.m-nested[open]>summary::after{transform:rotate(-135deg)}
+.m-nested .m-sub{padding:0 0 8px 12px}
+.m-nested .m-nested{margin-left:2px}
 .m-cta{margin-top:16px;width:100%}
 
 /* ============ HERO ============ */
@@ -728,9 +735,11 @@ footer{background:var(--bg-2);border-top:1px solid var(--border);padding-block:c
 .home-style-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(180deg,transparent,var(--bg));pointer-events:none;z-index:0}
 .home-style-hero .seo-hero-copy{max-width:920px;margin:0 auto;text-align:center}
 .home-style-hero h1{font-size:clamp(2.6rem,6.2vw,5rem);font-weight:400;margin:22px auto 0;max-width:none}
+.free-audit-title-line{display:block;white-space:nowrap;text-align:center}
 .home-style-hero .lead{max-width:60ch;margin:20px auto 0}
 .home-style-hero .cta-row{justify-content:center;margin-top:30px;gap:40px}
 @media(max-width:640px){
+  .free-audit-title-line{white-space:normal}
   .home-style-hero .cta-row{flex-direction:column;gap:14px;width:100%;max-width:320px;margin-left:auto;margin-right:auto;align-items:stretch}
   .home-style-hero .cta-row .shiny-cta{width:100%;height:56px;padding-top:0;padding-bottom:0;justify-content:center}
   .home-style-hero .cta-row .wa-btn{width:100%;height:56px;align-self:auto;font-size:1rem}

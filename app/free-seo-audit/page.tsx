@@ -76,7 +76,8 @@ export default function FreeSeoAuditPage() {
       <SeoHeroShell
         title={
           <>
-            Your SEO Is Losing Traffic to AI. <em className="it">Run a 5-Minute Diagnostic.</em>
+            <span className="free-audit-title-line">Your SEO Is Losing Traffic to AI.</span>{" "}
+            <em className="it">Run a 5-Minute Diagnostic.</em>
           </>
         }
         description="Stop guessing why competitors outrank you. Run a multi-dimensional audit across traditional search algorithms and modern generative AI visibility models, tailored to Hong Kong."
