@@ -8,13 +8,21 @@ const FEATURES: Feature[] = [
   { title: "Technical SEO", href: "/services/seo/technical-seo/", desc: "Crawlability, Core Web Vitals, indexation and render-path engineering.", icon: "/icons/seo/technical-seo.svg" },
 ];
 
-export default function ViewMoreFeatures({ features = FEATURES }: { features?: Feature[] }) {
+export default function ViewMoreFeatures({
+  features = FEATURES,
+  title = "View More Features",
+  description = "Explore the full Maxlytics SEO stack — every service is engineered around the same data foundation.",
+}: {
+  features?: Feature[];
+  title?: string;
+  description?: string;
+}) {
   return (
     <section className="section more-features" id="more-features">
       <div className="container">
         <div className="section-head" data-reveal>
-          <h2>View More Features</h2>
-          <p>Explore the full Maxlytics SEO stack — every service is engineered around the same data foundation.</p>
+          <h2>{title}</h2>
+          <p>{description}</p>
         </div>
         <div className="vmf-grid" data-reveal>
           {features.map((f) => (

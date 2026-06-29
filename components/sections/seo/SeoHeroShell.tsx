@@ -1,4 +1,6 @@
 import Aurora from "@/components/shaders/Aurora";
+import ColorBends from "@/components/shaders/ColorBends";
+import PerformanceHeroVisual from "@/components/sections/performance/PerformanceHeroVisual";
 import WorldMap from "@/components/sections/seo/WorldMap";
 import type { ReactNode } from "react";
 
@@ -10,6 +12,7 @@ type SeoHeroShellProps = {
   primaryCta: string;
   primaryHref?: string;
   showWhatsApp?: boolean;
+  variant?: "map" | "performance" | "home";
   children?: ReactNode;
 };
 
@@ -21,14 +24,22 @@ export default function SeoHeroShell({
   primaryCta,
   primaryHref = "#cta",
   showWhatsApp = true,
+  variant = "map",
   children,
 }: SeoHeroShellProps) {
   return (
-    <section className="section seo-hero" id="seo-hero">
-      <Aurora />
-      <div className="seo-hero-map" aria-hidden="true">
-        <WorldMap lineColor="#9D7BFF" />
-      </div>
+    <section
+      className={`section seo-hero ${variant === "performance" ? "performance-hero" : ""} ${variant === "home" ? "home-style-hero" : ""}`}
+      id="seo-hero"
+    >
+      {variant === "home" ? <ColorBends /> : <Aurora />}
+      {variant === "map" ? (
+        <div className="seo-hero-map" aria-hidden="true">
+          <WorldMap lineColor="#9D7BFF" />
+        </div>
+      ) : variant === "performance" ? (
+        <PerformanceHeroVisual />
+      ) : null}
       <div className="container">
         <div className="seo-hero-copy" data-reveal>
           {breadcrumb && <div className="hero-breadcrumb">{breadcrumb}</div>}

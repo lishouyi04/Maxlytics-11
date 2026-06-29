@@ -66,19 +66,19 @@ const citations = [
 ];
 
 const steps = [
-  ["NAP Consistency", "Clean duplicate listings, historical address conflicts and incorrect contact data.", "/img/img-3fc2d1ec65.svg"],
+  ["NAP Consistency", "Clean duplicate listings, historical address conflicts and incorrect contact data.", "/icons/local-seo/nap.svg"],
   ["Schema Nesting", "Add store hours, geocoordinates and bilingual categories through clean JSON-LD.", "/img/img-407b39ac68.svg"],
   ["Review Velocity", "Build post-purchase feedback flows that increase natural review velocity.", "/img/img-770343fefa.svg"],
 ];
 
 const localisationCards = [
-  ["Commercial-Area Intent", "Location-sensitive language for high-intent professional, retail and B2B queries without over-fragmenting Hong Kong into artificial zones.", "/icons/method/audit.svg"],
+  ["Commercial-Area Intent", "Location-sensitive language for high-intent professional, retail and B2B queries without over-fragmenting Hong Kong into artificial zones.", "/icons/local-seo/commercial.svg"],
   ["Branch-Level Relevance", "Each priority location receives unique service copy, schema, map signals and internal links instead of duplicated boilerplate.", "/icons/seo/local-seo.svg"],
-  ["Industry Modifiers", "Healthcare, education, real estate, F&B and ecommerce searches are grouped by how Hong Kong users actually compare providers.", "/icons/method/content.svg"],
+  ["Industry Modifiers", "Healthcare, education, real estate, F&B and ecommerce searches are grouped by how Hong Kong users actually compare providers.", "/icons/local-seo/industry.svg"],
 ];
 
 const localViewMoreFeatures = [
-  { title: "SEO", href: "/services/seo/", desc: "Return to the full Maxlytics SEO stack: technical, local, ecommerce, AI search and cross-border growth.", icon: "/icons/method/architecture.svg" },
+  { title: "SEO", href: "/services/seo/", desc: "Return to the full Maxlytics SEO stack: technical, local, ecommerce, AI search and cross-border growth.", icon: "/icons/local-seo/seo.svg" },
   { title: "E-commerce SEO", href: "/services/seo/ecommerce-seo/", desc: "Faceted navigation, product schema and category architecture for Shopify & SHOPLINE.", icon: "/icons/seo/ecommerce-seo.svg" },
   { title: "Technical SEO", href: "/services/seo/technical-seo/", desc: "Crawlability, Core Web Vitals, indexation and render-path engineering.", icon: "/icons/seo/technical-seo.svg" },
 ];

@@ -56,11 +56,11 @@ const pillars = [
 ];
 
 const metrics = [
-  ["Core Web Vitals", "Rendering speed and interaction responsiveness signals.", "/img/img-3fc2d1ec65.svg"],
-  ["SSL Integrity", "Security certificate validation and trust readiness.", "/img/img-407b39ac68.svg"],
-  ["XML Sitemap", "Crawl path structure for search discovery.", "/img/img-770343fefa.svg"],
-  ["Schema Coverage", "Rich-result and schema nesting eligibility.", "/img/img-501176ce6c.svg"],
-  ["Mobile Response", "Viewport and device rendering parity.", "/img/img-39cf66c0da.svg"],
+  ["Core Web Vitals", "Rendering speed and interaction responsiveness signals.", "/icons/audit-metrics/frame-4.svg"],
+  ["SSL Integrity", "Security certificate validation and trust readiness.", "/icons/audit-metrics/frame-1.svg"],
+  ["XML Sitemap", "Crawl path structure for search discovery.", "/icons/audit-metrics/frame-2.svg"],
+  ["Schema Coverage", "Rich-result and schema nesting eligibility.", "/icons/audit-metrics/frame-3.svg"],
+  ["Mobile Response", "Viewport and device rendering parity.", "/icons/audit-metrics/frame.svg"],
 ];
 
 const reportItems = [
@@ -82,6 +82,7 @@ export default function FreeSeoAuditPage() {
         description="Stop guessing why competitors outrank you. Run a multi-dimensional audit across traditional search algorithms and modern generative AI visibility models, tailored to Hong Kong."
         primaryCta="Generate My 5-Minute AI SEO Audit →"
         primaryHref="#audit-pillars"
+        variant="home"
       />
 
       <section className="section" id="audit-pillars">

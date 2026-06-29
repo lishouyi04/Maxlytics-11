@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SeoHeroShell from "@/components/sections/seo/SeoHeroShell";
 import Faq, { type FaqItem } from "@/components/sections/Faq";
+import ViewMoreFeatures from "@/components/sections/seo/ViewMoreFeatures";
 import SiteEffects from "@/components/SiteEffects";
+import CrossPlatformOrbit from "@/components/sections/performance/CrossPlatformOrbit";
 
 export const metadata: Metadata = {
   title: "Performance Marketing Agency Hong Kong",
@@ -85,24 +87,28 @@ const services = [
     "SEM HUB",
     "Multi-engine paid search across Google, Bing, PMax, Shopping and competitive conquesting.",
     "/services/sem/",
+    "/img/img-f128ba6125.svg",
   ],
   [
     "Paid Social Frameworks",
     "SOCIAL",
     "Campaign deployment across Meta, LinkedIn, TikTok, XHS and future high-signal platforms.",
     "/services/paid-social/",
+    "/img/img-418fc6052a.svg",
   ],
   [
     "Video Performance Engineering",
     "VIDEO",
     "YouTube, Reels and Shorts creative built around measurable CPA instead of view counts.",
     "/services/video-performance/",
+    "/icons/performance/video.svg",
   ],
   [
     "Privacy-First Tracking & Attribution",
     "ATTRIBUTION",
     "Server-side GTM, CAPI and cookieless measurement architecture for real ROAS visibility.",
     "/services/analytics-attribution/",
+    "/img/img-e40f4add84.svg",
   ],
 ];
 
@@ -119,10 +125,11 @@ const funnel = [
   ],
 ];
 
-const escapeLinks = [
-  ["Google Ads Dedicated Pillar", "Google Search, Smart Bidding and localized PMax scaling playbooks.", "/services/google-ads/"],
-  ["AI SEO & GEO Solutions", "Capture conversational recommendations across ChatGPT, Perplexity and AI search surfaces.", "/services/ai-seo/"],
-  ["Paid Social Execution Framework", "Meta, LinkedIn, TikTok and XHS audience systems for B2C and B2B growth.", "/services/paid-social/"],
+const performanceViewMoreFeatures = [
+  { title: "SEM", href: "/services/sem/", desc: "Google · Bing · Baidu · PMax · Shopping · Conquesting", icon: "/img/img-f128ba6125.svg" },
+  { title: "Video Performance", href: "/services/video-performance/", desc: "YouTube · Reels · Shorts · TikTok", icon: "/icons/performance/video.svg" },
+  { title: "Paid Social", href: "/services/paid-social/", desc: "Meta · LinkedIn · TikTok · X · XHS · LINE", icon: "/img/img-418fc6052a.svg" },
+  { title: "Analytics & Attribution", href: "/services/analytics-attribution/", desc: "GA4 · CAPI · Server-side GTM · MMM · ROAS", icon: "/img/img-e40f4add84.svg" },
 ];
 
 export default function PerformanceMarketingPage() {
@@ -138,6 +145,7 @@ export default function PerformanceMarketingPage() {
         description="Move past legacy agencies that only report impressions and vanity clicks. Maxlytics engineers full-funnel performance marketing campaigns powered by analytics, attribution and a proprietary 13M+ first-party data stack."
         primaryCta="Claim My Free Performance Audit →"
         primaryHref="/free-seo-audit/"
+        variant="performance"
       />
 
       <section className="section mkt" id="performance-benchmarks">
@@ -187,9 +195,12 @@ export default function PerformanceMarketingPage() {
             <p>Each channel has a dedicated role, but the growth model is unified: search intent, paid social demand, video creative and attribution all feed one optimisation loop.</p>
           </div>
           <div className="feature-grid four" data-reveal>
-            {services.map(([title, tag, desc, href]) => (
+            {services.map(([title, _tag, desc, href, icon]) => (
               <Link href={href} className="feature-card pm-service-card" key={title}>
-                <span className="card-kicker">{tag}</span>
+                <span className="feature-icon" aria-hidden="true">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={icon} alt="" />
+                </span>
                 <h3>{title}</h3>
                 <p>{desc}</p>
                 <span className="arrow-link">Explore <span>→</span></span>
@@ -228,7 +239,8 @@ export default function PerformanceMarketingPage() {
             <h2>Borderless Scale: Automated Cross-Platform Allocation</h2>
             <p>Budget should follow signal quality. We balance Google, Meta, TikTok and Baidu through one measurement layer, then shift spend toward geos and ad units with the strongest verified return.</p>
           </div>
-          <div className="feature-grid three" data-reveal>
+          <CrossPlatformOrbit />
+          <div className="feature-grid three pm-orbit-cards" data-reveal>
             {["Google + Bing", "Meta + TikTok", "Baidu Cross-Border"].map((title) => (
               <div className="feature-card" key={title}>
                 <h3>{title}</h3>
@@ -257,31 +269,6 @@ export default function PerformanceMarketingPage() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="section-head" data-reveal>
-            <h2>No Hidden Markups. Aligned Growth Incentives.</h2>
-            <p>We frame pricing around a fixed management base, minimum media requirements and performance-linked upside only after the measurement baseline is trustworthy.</p>
-          </div>
-          <div className="pricing-grid" data-reveal>
-            {["Audit & Baseline", "Growth Retainer", "Performance Scale"].map((name, index) => (
-              <div className={"pcard" + (index === 1 ? " featured" : "")} key={name}>
-                <div className="pcard-head">
-                  <div className="pcard-tier">0{index + 1}</div>
-                  <div className="pcard-name">{name}</div>
-                  <p className="pcard-info">Designed to keep incentives clear before spend is scaled.</p>
-                </div>
-                <div className="pcard-feats">
-                  <div className="pcard-feat"><span className="pc-check">✓</span><span>Tracking and attribution review</span></div>
-                  <div className="pcard-feat"><span className="pc-check">✓</span><span>Channel economics and benchmark modelling</span></div>
-                  <div className="pcard-feat"><span className="pc-check">✓</span><span>Quarterly optimisation roadmap</span></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <Faq
         items={faqItems}
         title="Frequently Asked Questions"
@@ -289,19 +276,11 @@ export default function PerformanceMarketingPage() {
         id="performance-marketing-faq"
       />
 
-      <section className="section escape-section">
-        <div className="container">
-          <p className="escape-label">EXPLORE SPECIFIC CHANNELS</p>
-          <div className="escape-links pm-escape-links">
-            {escapeLinks.map(([title, desc, href]) => (
-              <Link href={href} key={title}>
-                <strong>{title} →</strong>
-                <span>{desc}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ViewMoreFeatures
+        features={performanceViewMoreFeatures}
+        title="View More Features"
+        description="Explore the full Performance Marketing stack — each channel plugs into the same measurement and optimisation loop."
+      />
       <SiteEffects />
     </main>
   );
