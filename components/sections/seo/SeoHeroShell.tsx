@@ -1,6 +1,7 @@
 import Aurora from "@/components/shaders/Aurora";
 import ColorBends from "@/components/shaders/ColorBends";
 import PerformanceHeroVisual from "@/components/sections/performance/PerformanceHeroVisual";
+import SideRays from "@/components/shaders/SideRays";
 import WorldMap from "@/components/sections/seo/WorldMap";
 import type { ReactNode } from "react";
 
@@ -33,6 +34,7 @@ export default function SeoHeroShell({
       id="seo-hero"
     >
       {variant === "home" ? <ColorBends /> : <Aurora />}
+      {variant === "performance" && <SideRays className="performance-side-rays" />}
       {variant === "map" ? (
         <div className="seo-hero-map" aria-hidden="true">
           <WorldMap lineColor="#9D7BFF" />

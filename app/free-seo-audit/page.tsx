@@ -64,9 +64,9 @@ const metrics = [
 ];
 
 const reportItems = [
-  ["Technical Health Score Board", "Crawl maps that show link breakages and rendering issues.", "/icons/audit/technical-audit-fix.svg"],
-  ["AI Overviews Coverage Heatmap", "Where your brand is cited, ignored or displaced in AI search answers.", "/icons/audit/ai-visibility.svg"],
-  ["Bilingual Content Gap Framework", "English and Traditional Chinese keyword gaps mapped against competitors.", "/icons/audit/intent-recognition.svg"],
+  ["Technical Health Score Board", "Crawl maps that show link breakages and rendering issues.", "/img/audit-deliverables/technical-health-score.png", "/icons/audit/technical-audit-fix.svg"],
+  ["AI Overviews Coverage Heatmap", "Where your brand is cited, ignored or displaced in AI search answers.", "/img/audit-deliverables/ai-overviews-heatmap.png", "/icons/audit/ai-visibility.svg"],
+  ["Bilingual Content Gap Framework", "English and Traditional Chinese keyword gaps mapped against competitors.", "/img/audit-deliverables/bilingual-content-gap.png", "/icons/audit/intent-recognition.svg"],
 ];
 
 export default function FreeSeoAuditPage() {
@@ -75,10 +75,12 @@ export default function FreeSeoAuditPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SeoHeroShell
         title={
-          <>
-            <span className="free-audit-title-line">Your SEO Is Losing Traffic to AI.</span>{" "}
-            <em className="it">Run a 5-Minute Diagnostic.</em>
-          </>
+          <span className="free-audit-title-stack">
+            <span className="free-audit-title-main">Losing SEO Traffic to AI?</span>
+            <span>
+              Audit in <em className="it">5 Minutes.</em>
+            </span>
+          </span>
         }
         description="Stop guessing why competitors outrank you. Run a multi-dimensional audit across traditional search algorithms and modern generative AI visibility models, tailored to Hong Kong."
         primaryCta="Generate My 5-Minute AI SEO Audit →"
@@ -137,15 +139,16 @@ export default function FreeSeoAuditPage() {
             <h2>Inside Your Final Audit Deliverable</h2>
           </div>
           <div className="report-strip" data-reveal>
-            {reportItems.map(([title, desc, icon]) => (
+            {reportItems.map(([title, desc, image, icon]) => (
               <div className="report-card" key={title}>
+                <div className="report-window" aria-hidden="true">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={image} alt="" />
+                </div>
                 <span className="feature-icon report-icon" aria-hidden="true">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={icon} alt="" />
                 </span>
-                <div className="report-window" aria-hidden="true">
-                  <span></span><span></span><span></span>
-                </div>
                 <h3>{title}</h3>
                 <p>{desc}</p>
               </div>

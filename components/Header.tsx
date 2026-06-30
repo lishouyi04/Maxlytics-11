@@ -54,23 +54,43 @@ export default function Header() {
     const burger = document.getElementById("burger");
     const mob = document.getElementById("mobileNav");
     if (burger && mob) {
+      const closeMobileNav = () => {
+        mob.style.display = "none";
+        burger.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("mobile-nav-open");
+        mob.querySelectorAll("details[open]").forEach((detail) => {
+          detail.removeAttribute("open");
+        });
+      };
       const onBurger = () => {
         const v = mob.style.display !== "block";
         mob.style.display = v ? "block" : "none";
         burger.setAttribute("aria-expanded", String(v));
+        document.body.classList.toggle("mobile-nav-open", v);
       };
       burger.addEventListener("click", onBurger);
       cleanups.push(() => burger.removeEventListener("click", onBurger));
+      const mobileQuery = window.matchMedia("(max-width:820px)");
+      const onBreakpointChange = (event: MediaQueryListEvent) => {
+        if (!event.matches) closeMobileNav();
+      };
+      if (typeof mobileQuery.addEventListener === "function") {
+        mobileQuery.addEventListener("change", onBreakpointChange);
+        cleanups.push(() => mobileQuery.removeEventListener("change", onBreakpointChange));
+      } else {
+        mobileQuery.addListener(onBreakpointChange);
+        cleanups.push(() => mobileQuery.removeListener(onBreakpointChange));
+      }
       const linkHandlers: Array<[HTMLAnchorElement, () => void]> = [];
       mob.querySelectorAll("a").forEach((a) => {
-        const h = () => {
-          mob.style.display = "none";
-          burger.setAttribute("aria-expanded", "false");
-        };
+        const h = closeMobileNav;
         a.addEventListener("click", h);
         linkHandlers.push([a, h]);
       });
-      cleanups.push(() => linkHandlers.forEach(([a, h]) => a.removeEventListener("click", h)));
+      cleanups.push(() => {
+        closeMobileNav();
+        linkHandlers.forEach(([a, h]) => a.removeEventListener("click", h));
+      });
     }
 
     return () => cleanups.forEach((fn) => fn());
@@ -93,7 +113,7 @@ export default function Header() {
                 <Link className="feat" href="/services/seo" data-view="seo">
                   <div>
                     <div className="t">SEO</div>
-                    <div className="d">Organic growth · EN + zh-HK</div>
+                    <div className="d">Organic growth · EN + HK Chinese</div>
                   </div>
                   <span className="ar">→</span>
                 </Link>
@@ -205,46 +225,51 @@ export default function Header() {
           <summary>Services</summary>
           <div className="m-sub">
             <details className="m-nested">
-              <summary>AI SEO</summary>
+              <summary>SEO</summary>
               <div className="m-sub">
-                <Link href="/services/ai-seo/">AI SEO</Link>
-                <Link href="/services/ai-seo/geo/">GEO</Link>
-                <Link href="/services/ai-seo/ai-overview/">AI Overview</Link>
+                <details className="m-nested">
+                  <summary>SEO</summary>
+                  <div className="m-sub">
+                    <Link href="/services/seo/" data-view="seo">SEO</Link>
+                    <Link href="/services/seo/local-seo/">Local SEO</Link>
+                    <Link href="/services/seo/ecommerce-seo/">Ecommerce SEO</Link>
+                    <Link href="/services/seo/technical-seo/">Technical SEO</Link>
+                    <Link href="/services/content-marketing/">Content Marketing</Link>
+                  </div>
+                </details>
+                <details className="m-nested">
+                  <summary>AI SEO</summary>
+                  <div className="m-sub">
+                    <Link href="/services/ai-seo/">AI SEO</Link>
+                    <Link href="/services/ai-seo/geo/">GEO</Link>
+                    <Link href="/services/ai-seo/ai-overview/">AI Overview</Link>
+                  </div>
+                </details>
               </div>
             </details>
-            <Link href="/services/cro/">CRO</Link>
             <details className="m-nested">
               <summary>Performance Marketing</summary>
               <div className="m-sub">
                 <Link href="/services/performance-marketing/">Performance Marketing</Link>
+                <Link href="/services/sem/">SEM</Link>
+                <Link href="/services/google-ads/">Google Ads</Link>
+                <Link href="/services/google-search-ads/">Google Search Ads</Link>
+                <Link href="/services/google-display-ads/">Google Display Ads</Link>
+                <Link href="/services/google-performance-max/">Google Performance Max</Link>
+                <details className="m-nested">
+                  <summary>Paid Social</summary>
+                  <div className="m-sub">
+                    <Link href="/services/paid-social/">Paid Social</Link>
+                    <Link href="/services/paid-social/linkedin-ads/">LinkedIn Ads</Link>
+                  </div>
+                </details>
+                <Link href="/services/video-performance/">Video Performance</Link>
+                <Link href="/services/analytics-attribution/">Analytics &amp; Attribution</Link>
+                <Link href="/services/demand-gen/">Demand Gen</Link>
+                <Link href="/services/lead-generation/">Lead Generation</Link>
               </div>
             </details>
-            <Link href="/services/sem/">SEM</Link>
-            <Link href="/services/google-ads/">Google Ads</Link>
-            <Link href="/services/google-search-ads/">Google Search Ads</Link>
-            <Link href="/services/google-display-ads/">Google Display Ads</Link>
-            <Link href="/services/google-performance-max/">Google Performance Max</Link>
-            <details className="m-nested">
-              <summary>Paid Social</summary>
-              <div className="m-sub">
-                <Link href="/services/paid-social/">Paid Social</Link>
-                <Link href="/services/linkedin-ads/">LinkedIn Ads</Link>
-              </div>
-            </details>
-            <Link href="/services/video-performance/">Video Performance</Link>
-            <Link href="/services/analytics-attribution/">Analytics &amp; Attribution</Link>
-            <Link href="/services/demand-gen/">Demand Gen</Link>
-            <Link href="/services/lead-generation/">Lead Generation</Link>
-            <details className="m-nested">
-              <summary>SEO</summary>
-              <div className="m-sub">
-                <Link href="/services/seo/" data-view="seo">SEO</Link>
-                <Link href="/services/seo/local-seo/">Local SEO</Link>
-                <Link href="/services/seo/ecommerce-seo/">Ecommerce SEO</Link>
-                <Link href="/services/seo/technical-seo/">Technical SEO</Link>
-              </div>
-            </details>
-            <Link href="/services/content-marketing/">Content Marketing</Link>
+            <Link href="/services/cro/">CRO</Link>
           </div>
         </details>
         <Link className="m-link" href="/free-seo-audit/">

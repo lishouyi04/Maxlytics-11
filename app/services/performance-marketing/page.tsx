@@ -117,11 +117,31 @@ const funnel = [
     "Demand Generation",
     "Upper Funnel",
     "Use YouTube Shorts, Reels, Demand Gen and platform-native discovery formats to create new audience demand and branded search lift.",
+    "/icons/method/content.svg",
   ],
   [
     "Lead Generation",
     "Lower Funnel",
     "Capture active buyers through paid search, LinkedIn Lead Forms, retargeting and lead scoring logic for higher-value accounts.",
+    "/icons/method/monitoring.svg",
+  ],
+];
+
+const allocationItems = [
+  [
+    "Google + Bing",
+    "Unified campaign governance, conversion mapping and budget pacing for high-intent search growth.",
+    "/icons/platform-orbit-refined/google.svg",
+  ],
+  [
+    "Meta + TikTok",
+    "Creative signal loops and audience pacing that shift spend toward verified social demand.",
+    "/icons/platform-orbit-refined/meta.svg",
+  ],
+  [
+    "Baidu Cross-Border",
+    "Mainland-facing allocation logic for Baidu demand, APAC routing and cross-border conversion paths.",
+    "/icons/platform-orbit-refined/baidu.svg",
   ],
 ];
 
@@ -139,7 +159,7 @@ export default function PerformanceMarketingPage() {
       <SeoHeroShell
         title={
           <>
-            Stop Burning Your Ad Budget. <em className="it">Scale Predictable Revenue</em> Instead.
+            Stop Burning Budget. <em className="it">Start Scaling Revenue.</em>
           </>
         }
         description="Move past legacy agencies that only report impressions and vanity clicks. Maxlytics engineers full-funnel performance marketing campaigns powered by analytics, attribution and a proprietary 13M+ first-party data stack."
@@ -213,8 +233,9 @@ export default function PerformanceMarketingPage() {
       <section className="section">
         <div className="container">
           <div className="pm-data-stack" data-reveal>
-            <div className="pm-node-panel" aria-hidden="true">
-              <span></span><span></span><span></span><span></span><span></span>
+            <div className="pm-data-visual" aria-hidden="true">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/img/performance/local-profiles-platform.png" alt="" />
             </div>
             <div>
               <h2>Bypassing Ad Platform Limits with 13M+ Local Profiles</h2>
@@ -239,14 +260,22 @@ export default function PerformanceMarketingPage() {
             <h2>Borderless Scale: Automated Cross-Platform Allocation</h2>
             <p>Budget should follow signal quality. We balance Google, Meta, TikTok and Baidu through one measurement layer, then shift spend toward geos and ad units with the strongest verified return.</p>
           </div>
-          <CrossPlatformOrbit />
-          <div className="feature-grid three pm-orbit-cards" data-reveal>
-            {["Google + Bing", "Meta + TikTok", "Baidu Cross-Border"].map((title) => (
-              <div className="feature-card" key={title}>
-                <h3>{title}</h3>
-                <p>Unified campaign governance, conversion mapping and budget pacing for channel-specific growth roles.</p>
-              </div>
-            ))}
+          <div className="pm-allocation-layout" data-reveal>
+            <CrossPlatformOrbit />
+            <div className="pm-allocation-list">
+              {allocationItems.map(([title, desc, icon]) => (
+                <div className="pm-allocation-item" key={title}>
+                  <span className="pm-allocation-icon" aria-hidden="true">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={icon} alt="" />
+                  </span>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -258,8 +287,12 @@ export default function PerformanceMarketingPage() {
             <p>Performance growth needs both sides of the funnel: demand creation for cold audiences and conversion capture for people already showing commercial intent.</p>
           </div>
           <div className="funnel-split" data-reveal>
-            {funnel.map(([title, label, desc]) => (
-              <div className="funnel-card" key={title}>
+            {funnel.map(([title, label, desc, icon]) => (
+              <div className="funnel-card pattern-card" key={title}>
+                <span className="feature-icon" aria-hidden="true">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={icon} alt="" />
+                </span>
                 <span>{label}</span>
                 <h3>{title}</h3>
                 <p>{desc}</p>
