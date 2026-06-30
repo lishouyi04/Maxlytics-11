@@ -81,7 +81,7 @@ void main() {
 
   vec4 rays1 = vec4(iRayColor1, 1.0) * rayStrength(rayPos, rayRefDir1, tiltedCoord, 36.2214, 21.11349, 1.8);
   vec4 rays2 = vec4(iRayColor2, 1.0) * rayStrength(rayPos, rayRefDir2, tiltedCoord, 22.3991, 18.0234, 0.36);
-  vec4 color = rays1 * 0.32 + rays2 * 0.68;
+  vec4 color = rays1 * 0.25 + rays2 * 0.675;
 
   float distanceToLight = length(fragCoord.xy - vec2(rayPos.x, iResolution.y - rayPos.y)) / iResolution.y;
   float brightness = 0.88 / pow(max(distanceToLight, 0.001), 1.45);
@@ -89,7 +89,7 @@ void main() {
 
   float gray = dot(color.rgb, vec3(0.299, 0.587, 0.114));
   color.rgb = mix(vec3(gray), color.rgb, 1.35);
-  color.a = max(color.r, max(color.g, color.b)) * 0.72;
+  color.a = max(color.r, max(color.g, color.b));
   gl_FragColor = color;
 }`;
 
@@ -117,8 +117,8 @@ void main() {
     const uResolution = gl.getUniformLocation(program, "iResolution");
     const uRayColor1 = gl.getUniformLocation(program, "iRayColor1");
     const uRayColor2 = gl.getUniformLocation(program, "iRayColor2");
-    gl.uniform3fv(uRayColor1, hexToRgb("#8C2CF6"));
-    gl.uniform3fv(uRayColor2, hexToRgb("#23E2E0"));
+    gl.uniform3fv(uRayColor1, hexToRgb("#EAB308"));
+    gl.uniform3fv(uRayColor2, hexToRgb("#96c8ff"));
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
