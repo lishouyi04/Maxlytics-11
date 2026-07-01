@@ -4,6 +4,7 @@ import SeoHeroShell from "@/components/sections/seo/SeoHeroShell";
 import Faq, { type FaqItem } from "@/components/sections/Faq";
 import ViewMoreFeatures from "@/components/sections/seo/ViewMoreFeatures";
 import SiteEffects from "@/components/SiteEffects";
+import { performanceViewMoreFeatures } from "@/app/services/performanceFeatures";
 
 export const metadata: Metadata = {
   title: "SEM Agency Hong Kong",
@@ -67,7 +68,7 @@ const adFormats = [
   ["Google Display Realignment", "Retargeting structures and visual asset optimization for GDN inventory.", "/services/google-display-ads/", "/img/img-418fc6052a.svg"],
   ["Google Shopping Engine", "Merchant feed structure, product matching and multi-currency campaign hygiene.", "/services/google-ads/", "/icons/seo/ecommerce-seo.svg"],
   ["YouTube Video Funnels", "CPA-oriented video placements built to support measurable conversion paths.", "/services/video-performance/", "/icons/performance/video.svg"],
-  ["App Conversion Scaling", "Deep-linking and event parameters designed for efficient mobile app acquisition.", "/services/google-ads/", "/icons/method/monitoring.svg"],
+  ["App Conversion Scaling", "Deep-linking and event parameters designed for efficient mobile app acquisition.", "/services/google-ads/", "/icons/performance/conversion-lift.svg"],
 ];
 
 const conquesting = [
@@ -83,12 +84,6 @@ const process = [
   ["Quality Score Automation", "Tune landing page relevance, speed and historical performance inputs.", "/icons/method/authority.svg"],
   ["Cross-Engine Bid Tracking", "Synchronize bidding weights across Google, Bing and Baidu-facing structures.", "/icons/platforms/orbit-center.svg"],
   ["Dashboard Sync", "Unify account performance inside clear reporting tied to CPA, CPL and ROAS.", "/icons/method/monitoring.svg"],
-];
-
-const semViewMoreFeatures = [
-  { title: "Google Ads", href: "/services/google-ads/", desc: "Localized Google-only platform optimization, Quality Score and smart bidding systems.", icon: "/icons/platforms/google.svg" },
-  { title: "Performance Marketing", href: "/services/performance-marketing/", desc: "Unify paid search, social, video and attribution into one growth system.", icon: "/icons/platforms/orbit-center.svg" },
-  { title: "AI SEO", href: "/services/ai-seo/", desc: "Secure citation visibility across AI engines and Google AI answer surfaces.", icon: "/icons/ai/openai.svg" },
 ];
 
 export default function SemPage() {
@@ -226,7 +221,7 @@ export default function SemPage() {
       />
 
       <ViewMoreFeatures
-        features={semViewMoreFeatures}
+        features={performanceViewMoreFeatures("sem")}
         title="View More Features"
         description="Explore adjacent paid media and AI search systems."
       />

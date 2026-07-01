@@ -3,6 +3,7 @@ import SeoHeroShell from "@/components/sections/seo/SeoHeroShell";
 import Faq, { type FaqItem } from "@/components/sections/Faq";
 import ViewMoreFeatures from "@/components/sections/seo/ViewMoreFeatures";
 import SiteEffects from "@/components/SiteEffects";
+import { performanceViewMoreFeatures } from "@/app/services/performanceFeatures";
 
 export const metadata: Metadata = {
   title: "Video Advertising Agency Hong Kong",
@@ -54,9 +55,9 @@ const metrics = [
 ];
 
 const platforms = [
-  ["YouTube Ecosystem", "Search placements, skippable in-stream and Shorts campaigns built around high-intent video discovery.", "/icons/performance/video.svg"],
+  ["YouTube Ecosystem", "Search placements, skippable in-stream and Shorts campaigns built around high-intent video discovery.", "/icons/performance/youtube.svg"],
   ["Short-Form Networks", "TikTok and Meta Reels creative engineered for vertical-first consumption and native UI fit.", "/icons/platforms/tiktok.svg"],
-  ["Localized Messengers", "LINE-style local video placements and regional feed formats for high-activity transactional users.", "/icons/method/monitoring.svg"],
+  ["Localized Messengers", "WhatsApp-first local video placements and regional feed formats for high-activity transactional users.", "/icons/performance/whatsapp.svg"],
 ];
 
 const production = [
@@ -88,12 +89,6 @@ const performanceRows = [
     "End cards and calls-to-action are vague, cinematic or detached from the funnel.",
     "Mid-roll and end-card CTA layers route viewers into lead capture or conversion paths.",
   ],
-];
-
-const videoViewMoreFeatures = [
-  { title: "Performance Marketing", href: "/services/performance-marketing/", desc: "Unify video, paid search, social and attribution into one growth system.", icon: "/icons/platforms/orbit-center.svg" },
-  { title: "SEM", href: "/services/sem/", desc: "Master paid search acquisition across Google, Bing, Baidu and conquesting.", icon: "/img/img-f128ba6125.svg" },
-  { title: "AI SEO", href: "/services/ai-seo/", desc: "Secure citation visibility across ChatGPT, Perplexity and Google AI surfaces.", icon: "/icons/ai/openai.svg" },
 ];
 
 export default function VideoPerformancePage() {
@@ -225,7 +220,7 @@ export default function VideoPerformancePage() {
       />
 
       <ViewMoreFeatures
-        features={videoViewMoreFeatures}
+        features={performanceViewMoreFeatures("video")}
         title="View More Features"
         description="Explore adjacent paid media and AI search systems."
       />
