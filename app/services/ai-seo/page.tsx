@@ -89,7 +89,7 @@ export default function AiSeoPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SeoHeroShell
-        breadcrumb="Services / AI SEO"
+        breadcrumb="AI SEO"
         title={
           <>
             Stop Ranking for Blue Links. Win <em className="it">AI Citations</em> Instead.

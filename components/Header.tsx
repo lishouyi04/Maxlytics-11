@@ -31,6 +31,10 @@ export default function Header() {
       const onLeave = () => !matchMedia("(max-width:820px)").matches && open(false);
       const onClick = (e: MouseEvent) => {
         e.stopPropagation();
+        if (!matchMedia("(max-width:820px)").matches) {
+          open(true);
+          return;
+        }
         open(!item.classList.contains("open"));
       };
       item.addEventListener("mouseenter", onEnter);

@@ -5,6 +5,7 @@ import Faq, { type FaqItem } from "@/components/sections/Faq";
 import ViewMoreFeatures from "@/components/sections/seo/ViewMoreFeatures";
 import SiteEffects from "@/components/SiteEffects";
 import CrossPlatformOrbit from "@/components/sections/performance/CrossPlatformOrbit";
+import { performanceViewMoreFeatures } from "@/app/services/performanceFeatures";
 
 export const metadata: Metadata = {
   title: "Performance Marketing Agency Hong Kong",
@@ -117,39 +118,32 @@ const funnel = [
     "Demand Generation",
     "Upper Funnel",
     "Use YouTube Shorts, Reels, Demand Gen and platform-native discovery formats to create new audience demand and branded search lift.",
-    "/icons/method/content.svg",
+    "/icons/performance/demand-generation.svg",
   ],
   [
     "Lead Generation",
     "Lower Funnel",
     "Capture active buyers through paid search, LinkedIn Lead Forms, retargeting and lead scoring logic for higher-value accounts.",
-    "/icons/method/monitoring.svg",
+    "/icons/performance/lead-generation.svg",
   ],
 ];
 
 const allocationItems = [
-  [
-    "Google + Bing",
-    "Unified campaign governance, conversion mapping and budget pacing for high-intent search growth.",
-    "/icons/platform-orbit-refined/google.svg",
-  ],
-  [
-    "Meta + TikTok",
-    "Creative signal loops and audience pacing that shift spend toward verified social demand.",
-    "/icons/platform-orbit-refined/meta.svg",
-  ],
-  [
-    "Baidu Cross-Border",
-    "Mainland-facing allocation logic for Baidu demand, APAC routing and cross-border conversion paths.",
-    "/icons/platform-orbit-refined/baidu.svg",
-  ],
-];
-
-const performanceViewMoreFeatures = [
-  { title: "SEM", href: "/services/sem/", desc: "Google · Bing · Baidu · PMax · Shopping · Conquesting", icon: "/img/img-f128ba6125.svg" },
-  { title: "Video Performance", href: "/services/video-performance/", desc: "YouTube · Reels · Shorts · TikTok", icon: "/icons/performance/video.svg" },
-  { title: "Paid Social", href: "/services/paid-social/", desc: "Meta · LinkedIn · TikTok · X · XHS · LINE", icon: "/img/img-418fc6052a.svg" },
-  { title: "Analytics & Attribution", href: "/services/analytics-attribution/", desc: "GA4 · CAPI · Server-side GTM · MMM · ROAS", icon: "/img/img-e40f4add84.svg" },
+  {
+    title: "Google + Bing",
+    desc: "Unified campaign governance, conversion mapping and budget pacing for high-intent search growth.",
+    icons: ["/icons/platform-orbit-refined/google.svg", "/icons/platform-orbit-refined/bing.svg"],
+  },
+  {
+    title: "Meta + TikTok",
+    desc: "Creative signal loops and audience pacing that shift spend toward verified social demand.",
+    icons: ["/icons/platform-orbit-refined/meta.svg", "/icons/platform-orbit-refined/tiktok.svg"],
+  },
+  {
+    title: "Baidu Cross-Border",
+    desc: "Mainland-facing allocation logic for Baidu demand, APAC routing and cross-border conversion paths.",
+    icons: ["/icons/platform-orbit-refined/baidu.svg"],
+  },
 ];
 
 export default function PerformanceMarketingPage() {
@@ -157,6 +151,7 @@ export default function PerformanceMarketingPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SeoHeroShell
+        breadcrumb="Performance Marketing"
         title={
           <>
             Stop Burning Budget. <em className="it">Start Scaling Revenue.</em>
@@ -263,11 +258,13 @@ export default function PerformanceMarketingPage() {
           <div className="pm-allocation-layout" data-reveal>
             <CrossPlatformOrbit />
             <div className="pm-allocation-list">
-              {allocationItems.map(([title, desc, icon]) => (
+              {allocationItems.map(({ title, desc, icons }) => (
                 <div className="pm-allocation-item" key={title}>
                   <span className="pm-allocation-icon" aria-hidden="true">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={icon} alt="" />
+                    {icons.map((icon) => (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={icon} alt="" key={icon} />
+                    ))}
                   </span>
                   <div>
                     <h3>{title}</h3>
@@ -310,7 +307,7 @@ export default function PerformanceMarketingPage() {
       />
 
       <ViewMoreFeatures
-        features={performanceViewMoreFeatures}
+        features={performanceViewMoreFeatures("performance")}
         title="View More Features"
         description="Explore the full Performance Marketing stack — each channel plugs into the same measurement and optimisation loop."
       />

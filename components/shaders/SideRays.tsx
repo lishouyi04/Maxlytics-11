@@ -117,8 +117,8 @@ void main() {
     const uResolution = gl.getUniformLocation(program, "iResolution");
     const uRayColor1 = gl.getUniformLocation(program, "iRayColor1");
     const uRayColor2 = gl.getUniformLocation(program, "iRayColor2");
-    gl.uniform3fv(uRayColor1, hexToRgb("#EAB308"));
-    gl.uniform3fv(uRayColor2, hexToRgb("#96c8ff"));
+    gl.uniform3fv(uRayColor1, hexToRgb("#8C2CF6"));
+    gl.uniform3fv(uRayColor2, hexToRgb("#DDBBFF"));
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);

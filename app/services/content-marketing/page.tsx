@@ -88,7 +88,7 @@ export default function ContentMarketingPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SeoHeroShell
-        breadcrumb="Services / Content Marketing"
+        breadcrumb="Content Marketing"
         title={
           <>
             Stop Writing Content for Clicks. Build <em className="it">Pipeline</em> Instead.

@@ -3,6 +3,7 @@ import SeoHeroShell from "@/components/sections/seo/SeoHeroShell";
 import Faq, { type FaqItem } from "@/components/sections/Faq";
 import ViewMoreFeatures from "@/components/sections/seo/ViewMoreFeatures";
 import SiteEffects from "@/components/SiteEffects";
+import { performanceViewMoreFeatures } from "@/app/services/performanceFeatures";
 
 export const metadata: Metadata = {
   title: "Paid Social Advertising Hong Kong",
@@ -49,10 +50,10 @@ const jsonLd = {
 
 const platforms = [
   ["Meta Ecosystem", "Facebook and Instagram conversion tracking, lookalikes and Advantage+ shopping frameworks for B2C scale.", "/icons/platforms/meta.svg"],
-  ["LinkedIn B2B Advertising", "Decision-maker targeting, seniority layers and native lead forms for high-value professional audiences.", "/img/img-418fc6052a.svg"],
+  ["WhatsApp Conversion Flows", "High-adoption Hong Kong messaging loops, click-to-WhatsApp entry points and fast direct-response conversion paths.", "/icons/performance/whatsapp.svg"],
   ["TikTok Performance Networks", "Native short-form hooks and fast creative testing for youth, lifestyle and trend-led demand.", "/icons/platforms/tiktok.svg"],
   ["Xiaohongshu & Emerging Channels", "Lifestyle and cross-border discovery paths for premium mainland-facing consumer intent.", "/icons/platforms/xiaohongshu.svg"],
-  ["LINE Local Ads", "Localized messaging loops and direct-response paths for friction-light communication and conversion.", "/icons/method/monitoring.svg"],
+  ["WhatsApp Retargeting Support", "Localized follow-up messaging and sales handoff paths for friction-light communication in Hong Kong.", "/icons/performance/whatsapp.svg"],
 ];
 
 const benchmarkRows = [
@@ -79,12 +80,6 @@ const technicalStack = [
   ["Conversions API Integration", "Preserve conversion signals through server-to-server tracking and cleaner event deduplication.", "/icons/method/architecture.svg"],
   ["Advantage+ Catalog Feeds", "Structure product feeds, variants and currency layers for accurate dynamic retargeting.", "/icons/seo/ecommerce-seo.svg"],
   ["Server-Side Token Processing", "Process hashed event identifiers through privacy-first infrastructure for more reliable attribution.", "/icons/method/monitoring.svg"],
-];
-
-const paidSocialViewMoreFeatures = [
-  { title: "LinkedIn Ads", href: "/services/paid-social/linkedin-ads/", desc: "Corporate target matching, seniority layers and B2B lead-generation setup.", icon: "/img/img-418fc6052a.svg" },
-  { title: "SEM", href: "/services/sem/", desc: "Multi-engine paid keyword intent across Google, Bing, Baidu and conquesting.", icon: "/img/img-f128ba6125.svg" },
-  { title: "AI SEO", href: "/services/ai-seo/", desc: "Secure citation visibility across ChatGPT, Perplexity and Google AI surfaces.", icon: "/icons/ai/openai.svg" },
 ];
 
 export default function PaidSocialPage() {
@@ -220,7 +215,7 @@ export default function PaidSocialPage() {
       />
 
       <ViewMoreFeatures
-        features={paidSocialViewMoreFeatures}
+        features={performanceViewMoreFeatures("paid-social")}
         title="View More Features"
         description="Explore adjacent paid media and AI search systems."
       />
